@@ -1,8 +1,15 @@
 import json #import the json library
+import sys #import the sys library
 
+
+#solve function
 def solve():
 
-    d = json.load(open("/Users/saibhe.mccullough/Documents/College/Tools for AI/Assignment3/ARC/ARC/data/training/017c7c7b.json"))
+    #set datalocation to the argument passed in from the command line
+    datalocation = sys.argv[1]
+
+    #open datalocation, and load it into variable data
+    data = json.load(open(datalocation))
 
     # list of set values (train set or test set)
     set_values = ['train', 'test']
@@ -12,11 +19,11 @@ def solve():
 
         #while the count is less than the length of the set (training set or test set)
         i = 0
-        count = len(d[value])
+        count = len(data[value])
         while i < count:
 
             #access input i of each set
-            input = d[value][i]['input']
+            input = data[value][i]['input']
 
             #iterate over input values
             #change values of 1's to 2's
