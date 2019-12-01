@@ -1,6 +1,6 @@
 import sys #import the sys library
 import json #import the json library
-
+import numpy as np #import the numpy module
 
 #solve function
 def solve():
@@ -17,42 +17,36 @@ def solve():
     #iterate over set
     for value in set_values:
 
-        #while count is less than the length of the data
-        i= 0
+        #while count is less than the length of the data set
+        i = 0
         count = len(data[value])
-        #print (count)
         while i < count:
 
-            #Access first input
+            #access input i
             input = data[value][i]['input']
-            #print (i, count, value, input)
+            #create structure output
+            output = input
             
-            #insert 0 at element 0
-            input[1].insert(0, 0)
-            #remove last index
-            del input[1][-1]
+            #iterate through each row
+            for row in output:
+                 #insert zero at element 0
+                row.insert(0,0)
+                #remove last index
+                del row[-1]
+        
+           #if there are more than 10 rows of data
+            if len(output) > 10:
+                #sublist captures rows 12 onwards
+                sub_list = output[12:]
+               #insert sub_list at row 6
+                output.insert(6, sub_list)
+                #remove rows 12 onwards
+                del output[12:]
 
-
-            #check if there is more than 10 rows of data
-            #if there more than 10 rows, process a second shape
-            if len(input) > 10:
-                #last row of data is saved to sub_list
-                sub_list = input[-1]
-                #insert sub_list
-                input.insert(6, sub_list)
-                #remove last row
-                del input[-1]
-
-                #last row of data is saved to sub_list
-                sub_list = input[-1]
-                #insert 6 into sub_list
-                input.insert(6, sub_list)
-                #remove last row
-                del input[-1]
-                
-                
-            #print (len(input))
-            #print(input)
+            #create a numpy array out of the output
+            output = np.array([output])
+            #print statement to print each output grid as numbers and spaces
+            print(*output.flatten(), sep=' ')
             i +=1
 
 solve()         
