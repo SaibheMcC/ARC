@@ -1,5 +1,6 @@
-import json #import the json library
-import sys #import the sys library
+import json #import the json module
+import sys #import the sys module
+import numpy as np #import the numpy module
 
 
 #solve function
@@ -24,7 +25,7 @@ def solve():
 
             #access input i of each set
             input = data[value][i]['input']
-            #print ('input', input)
+            #create a new structure, output
             output = input
 
             #iterate over input values
@@ -43,20 +44,15 @@ def solve():
             for x in sub_list:
                 #append the each item to the input data
                 output.append(x)
-            #print (value, input)    
-        
-            #print ('output', output)
-            import numpy as np
+
+            #create a numpy array out of the output
             output = np.array([output])
-
-            #print('output', np.matrix(output))
-
+            #print statement to print each output grid as numbers and spaces
             print(*output.flatten(), sep=' ')
-            #print (' '.join(map(str, output)))
-            
-            #print (' '.join(str(row) for row in output))
 
+            #add 1 to i
+            #this is th counter for the while loop
             i+=1 
                   
             
-solve()            
+solve() #call the solve function           
