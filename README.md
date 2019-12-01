@@ -1,3 +1,19 @@
+
+# Fork SaibheMcC/ARC
+The purpose of this forked repository is to solve the following tasks in the directory ARC/data/training:
+017c7c7b.json
+025d127b.json
+00d62c1b.json
+
+Each solution can be executed from the command line using the following format:
+$ python solution_<task>.py path/to/<task>.json
+
+The solution for 00d62c1b.json is not complete, but still a work in progress.
+
+This repository is required as part of Assignment 3, PTAI module, MSc AI-online.
+
+
+
 # The Abstraction and Reasoning Corpus (ARC)
 
 This repository contains the ARC task data, as well as a browser-based interface for humans to try their hand at solving the tasks manually.
