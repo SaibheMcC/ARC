@@ -1,3 +1,8 @@
+#Name: Saibhe McCullough
+#ID: 19234817
+#PTAI Assignment 3
+
+
 import sys #import the sys library
 import json #import the json library
 import numpy as np #import the numpy module
