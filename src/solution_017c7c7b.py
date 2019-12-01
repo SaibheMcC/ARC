@@ -24,21 +24,39 @@ def solve():
 
             #access input i of each set
             input = data[value][i]['input']
+            #print ('input', input)
+            output = input
 
             #iterate over input values
-            #change values of 1's to 2's
-            for row in input:
+            #change the blue squares to red
+            #by swapping any values of 1 to become 2
+            for row in output:
                 for column in row:
                     if row[column] == 1:
                         row[column] = 2
+                        #print (row[column])
             
-            #get second half of data and append it onto the end of the data (this needs to be more specific - and capture 3 rows, but not the last row)
-            sub_list = input[int(len(input)/2):]
+            #sub_list = get first half of data and append it onto the end of the data
+            sub_list = output[:int(len(output)/2)]
 
+            #iterate through each item in the sub_list
             for x in sub_list:
-                input.append(x)
-            print (value, input)    
+                #append the each item to the input data
+                output.append(x)
+            #print (value, input)    
         
+            #print ('output', output)
+            import numpy as np
+            output = np.array([output])
+
+            #print('output', np.matrix(output))
+
+            print(*output.flatten(), sep=' ')
+            #print (' '.join(map(str, output)))
+            
+            #print (' '.join(str(row) for row in output))
+
             i+=1 
+                  
             
 solve()            
